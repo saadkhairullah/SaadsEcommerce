@@ -2,16 +2,21 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #7c0000;
+    background-image: url(background.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 header {
-    background-color: #333;
+    background-color: #000000;
     color: white;
     padding: 10px 0;
     text-align: center;
+    height: 90px;
+    border-radius: 10px;
 }
 main {
-    background-color: white;
+    background-color: rgb(223, 180, 180);
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
@@ -21,4 +26,12 @@ footer {
     text-align: center;
     margin-top: 20px;
     color: #777;
+}
+.logo {
+width: 100px;
+border-radius: 10px;
+float: left;
+position: relative;
+top: -5px;
+left: 2.5px;
 }
