@@ -35,3 +35,41 @@ position: relative;
 top: -5px;
 left: 2.5px;
 }
+.signin{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 20px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 18px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #f86f6f 0%, #861d00 100%);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+.signin:hover {
+    background-color: #45a049; /* Lighter Green */
+    color: yellow; /* Change text color */
+}
+.signup{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 20px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 18px;
+    border-radius: 20px;
+     background-image: linear-gradient(to right, #f66a65 0%, #6e0000 100%);
+     border: none;
+     color: white;
+     padding: 15px 32px;
+     font-size: 16px;
+     cursor: pointer;
+    float: right;
+}
+.signup:hover {
+    background-color: #45a049; /* Lighter Green */
+    color: yellow; /* Change text color */
+}
