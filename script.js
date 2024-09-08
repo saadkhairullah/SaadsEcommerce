@@ -1,6 +1,9 @@
-document.getElementsByClassName("signup").addEventListner("click", function(){ 
-console.log("clicked")
-});
+document.getElementById("signup").addEventListener("click", function(){ 
+    document.querySelector(".popup").style.display = "flex";
+})
+document.getElementById("login").addEventListener("click", function(){ 
+    document.querySelector(".popup").style.display = "flex";
+})
 // document.getElementsByClassName(".popup").addEventListener("click", function(event){
 //     const pu = document.getElementsByClassName(".popup");
 //     if (event.target == pu){
