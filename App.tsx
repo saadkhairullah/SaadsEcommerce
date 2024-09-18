@@ -1,8 +1,13 @@
 import React from "react";
-import Message from "./Message";
+import Message from "./About";
+import Header from "./Header";
+import About from "./About";
 
 
 function App(){
-    return <div><Message></Message></div>
+    return <div>
+        <Header></Header>
+        <About></About>
+    </div>
 }
 export default App;
