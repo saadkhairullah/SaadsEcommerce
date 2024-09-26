@@ -79,7 +79,7 @@ left: 2.5px;
     height: 100%;
     position: absolute;
     top: 0;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -113,5 +113,8 @@ input{
     border-radius: 20px;
     position: absolute;
     left: 586px;
-    bottom: 256px;
+    bottom: 302px;
+}
+.popup h2{
+    color: #000000;
 }
