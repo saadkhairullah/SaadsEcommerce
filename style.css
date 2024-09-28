@@ -85,10 +85,10 @@ left: 2.5px;
 }
 .popupcontent{
     border-radius: 5px;
-    width: 500px;
+    width: 350px;
     background: white;
     padding: 50px;
-    position: relative;
+    position: absolute;
 }
 input{
     margin: 20px auto;
@@ -112,23 +112,33 @@ input{
     height: auto; /* Maintain aspect ratio */
     border-radius: 20px;
     position: absolute;
-    left: 586px;
-    bottom: 302px;
+    bottom: 480px;
+    left: 440px;
 }
 .popup h2{
     color: #000000;
 }
 .SubmitBtn{
     display: flex; /* Remove default spacing */
-    height: auto; /* Maintain aspect ratio */
-    position: absolute;
+    height: 25px; /* Maintain aspect ratio */
+    width: 78px;
+    font-size: large;
+    position: relative;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-image: linear-gradient(to right, #f86f6f 0%, #861d00 100%);
     color: rgb(228, 227, 227);
     border-radius: 8px;
+    top: 20px;
+    left: 140px;
+
 }
-.AboutSec{
-    display: inline;
+.PopUpLogo{
+    width: 100px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 375px;
+    left: 20px;
+}
+.HomeLink{
     font-size: 50px;
-    
 }

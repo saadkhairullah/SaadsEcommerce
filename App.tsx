@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-import Message from "./components/About";
+import Message from "./About";
 import Header from "./components/Header";
-import About from "./components/About";
+import About from "./About";
+import Home from "./Home";
+import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 
 
 function App(){
     
-    return <div>
-        <Header></Header>
-        <About></About>
-    </div>
+    return<BrowserRouter>
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+
+    
 }
 export default App;
