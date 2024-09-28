@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-image: url(background.jpg);
+    background-image: url(photos/background.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -117,4 +117,18 @@ input{
 }
 .popup h2{
     color: #000000;
+}
+.SubmitBtn{
+    display: flex; /* Remove default spacing */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: linear-gradient(to right, #f86f6f 0%, #861d00 100%);
+    color: rgb(228, 227, 227);
+    border-radius: 8px;
+}
+.AboutSec{
+    display: inline;
+    font-size: 50px;
+    
 }

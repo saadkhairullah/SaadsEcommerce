@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Message from "./About";
-import Header from "./Header";
-import About from "./About";
+import Message from "./components/About";
+import Header from "./components/Header";
+import About from "./components/About";
 
 
 
