@@ -1,18 +1,17 @@
 const express = require('express');
 const UserInfo = require('../models/usermodel')
+const {
+    createUser,
+    getUsers,
+    getUser,
+} = require('../controllers/userController')
+
 const router = express.Router();
 
-router.get("/", (req,res)=>  {
-    res.json({Names:"hamza, saad, amro"});
-});
-router.post("/", async (req,res)=>  {
-    const {Username, Email} = req.body
-    try {
-        const User = await UserInfo.create({Username, Email})
-        res.status(200).json(User)
-    } catch (error) {
-        res.status(400).json({error: error.message})
-    }
-});
+router.get('/', getUsers);
+
+router.get('/:id', getUser);
+
+router.post('/', createUser);
 
 module.exports = router;
