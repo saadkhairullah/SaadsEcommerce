@@ -5,7 +5,8 @@ const {
     getUsers,
     getUser,
     deleteUser,
-    updateUserName,
+    updateFirstName,
+    updateLastName,
     updateEmail,
 } = require('../controllers/userController')
 
@@ -19,7 +20,9 @@ router.post('/', createUser);
 
 router.delete('/:id', deleteUser)
 
-router.patch('/:id', updateUserName)
+router.patch('/:id', updateFirstName)
+
+router.patch('/:id', updateLastName)
 
 router.patch('/:id', updateEmail)
 

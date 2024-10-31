@@ -4,7 +4,12 @@ const schema = mongoose.Schema
 
 const userSchema = new schema({
 
-    Username: {
+    fName: {
+        type: String,
+        required: true
+    },
+    
+    lName: {
         type: String,
         required: true
     },
