@@ -4,12 +4,12 @@ const schema = mongoose.Schema
 
 const userSchema = new schema({
 
-    fName: {
+    FName: {
         type: String,
         required: true
     },
     
-    lName: {
+    LName: {
         type: String,
         required: true
     },

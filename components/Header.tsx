@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PopUp from "./PopUp";
+import SignUpForm from "./PopUp";
 
 
 function Header()
@@ -8,7 +8,7 @@ function Header()
     return <header className="MainHeader">
     <button  onClick={() => {isOpen(true)}}id = "signup" className="signup">Sign up</button>
     <button  onClick={() => {isOpen(true)}}className="signin" id="signin">Log in</button>
-    {Open && <PopUp ClosePopUp={isOpen}/>}
+    {Open && <SignUpForm ClosePopUp={isOpen}/>}
     <img src="photos/logo.webp"  alt="logo" className ="logo"></img>
     <h1>Sign up for Glimmer Guard's</h1>
 </header>

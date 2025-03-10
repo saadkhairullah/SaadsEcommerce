@@ -1,28 +1,48 @@
 import React from 'react'
 import { useState } from 'react'
 
-function PopUp({ClosePopUp}: any)  {
+const SignUpForm = ({ClosePopUp}: any) => {
+// function PopUp({ClosePopUp}: any)  {
 
-    const [fName, setfName] = useState('')
-    const [lName, setlName] = useState('')
-    const [email, setEmail] = useState('')
+    const [FName, setfName] = useState('')
+    const [LName, setlName] = useState('')
+    const [Email, setEmail] = useState('')
+    const [error, setError] = useState(null)
 
     const handleSubmmit = async (e: any)=> {
-        e.preventDeafult()
+        e.preventDefault()
 
-        const UserInfo = {fName,lName, email}
+        const UserInfo = {FName,LName, Email}
 
-        const response = await fetch('/', {
+        const response = await fetch('/api/home', {
             method: 'POST',
             body: JSON.stringify(UserInfo),
             headers: {
             'Content-Type': 'application/json'
             }
         })
- //continue work here ??????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+        const userJson = await response.json()
+
+ //if the user could not be created print an error
+
+        if(!response.ok){
+          setError(userJson.error)
+        }
+
+// user was created, now we reset the form so we can add another one again 
+
+        if(response.ok){
+
+            setError(null)
+            setEmail('')
+            setfName('')
+            setlName('')
+            console.log('New User Created', userJson)
+        }
     }
   
-    return   <div className="popup" onSubmit={handleSubmmit}> 
+    return  <form onSubmit={handleSubmmit} className='popup'> 
         <div className="popupcontent">
         <h2>Sign Up</h2>
         <img src ="photos/logo.webp" className="PopUpLogo"></img>
@@ -31,24 +51,23 @@ function PopUp({ClosePopUp}: any)  {
         </button>
         <input type="text" placeholder="First Name"
         onChange={(e)=> setfName(e.target.value)}
-        value = {fName}
+        value = {FName}
         />
       
         <input type="text" placeholder="Last Name" 
         onChange={(e)=> setlName(e.target.value)}
-        value = {lName}
+        value = {LName}
         />
 
         <input type="email" placeholder="Email" 
         onChange={(e)=> setEmail(e.target.value)}
-        value = {email}
+        value = {Email}
         />
         <input type="password" placeholder="Password"></input>
         <button id ="SubmitBtn" className="SubmitBtn">Submit</button>
     </div>
-</div> 
-
-  
+</form>
 }
+// }
 
-export default PopUp
+export default SignUpForm

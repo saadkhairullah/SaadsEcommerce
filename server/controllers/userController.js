@@ -4,11 +4,11 @@ const mongoose = require('mongoose')
 
 //create a new user
 const createUser = async (req, res) =>{
-    const {fName, Email} = req.body
+    const {LName,FName, Email} = req.body
 
     //add user to db
     try {
-        const user = await UserInfo.create({fName, Email})
+        const user = await UserInfo.create({LName,FName, Email})
         res.status(200).json(user)
     } catch (error) {
         res.status(404).json({error: error.message})
@@ -57,13 +57,13 @@ const deleteUser = async (req, res) => {
 //update a user name
 const updateFirstName = async (req, res) => {
     const { id } = req.params // pass in the id of the user
-    const {fName} = req.body
+    const {FName} = req.body
 
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error: 'No User Found with that First Name!'})
     }
 
-    const user = await UserInfo.findOneAndUpdate({_id: id}, {fName: fName})
+    const user = await UserInfo.findOneAndUpdate({_id: id}, {FName: FName})
 
     if(!user){
         return res.status(404).json({error: 'No User Found with that First Name!'})
@@ -73,13 +73,13 @@ const updateFirstName = async (req, res) => {
 
 const updateLastName = async (req, res) => {
     const { id } = req.params // pass in the id of the user
-    const {lName} = req.body
+    const {LName} = req.body
 
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error: 'No User Found with that Last Name!'})
     }
 
-    const user = await UserInfo.findOneAndUpdate({_id: id}, {lName: lName})
+    const user = await UserInfo.findOneAndUpdate({_id: id}, {LName: LName})
 
     if(!user){
         return res.status(404).json({error: 'No User Found with that Last Name!'})
