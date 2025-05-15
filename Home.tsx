@@ -5,11 +5,13 @@ import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
 
 function Home() {
 
-  const [allUsers, setUsers] = useState([])
+  const
+  [user, setUsers] = useState(null)
   useEffect(() =>{
     const fetchUsers = async ()=>{
       const response = await fetch('http://localhost:8080/api/home/')
       const json = await response.json()
+      
 
       if (response.ok){
         setUsers(json)
@@ -20,11 +22,14 @@ function Home() {
   }, [])
   return (
     <div>
+
+    {/* This is where i left off */}
+    
         <Header></Header>
         <Link to ="/about">about</Link>
         <div className='Users'>
-          {allUsers && allUsers.map((user) =>(
-          <p key = {user._id}>{user.fName}</p>)
+          {user && user.map((user) =>(
+          <p key = {user._id}>{user._id}</p>)
         )}
         </div>
     </div>
