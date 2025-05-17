@@ -4,11 +4,11 @@ const mongoose = require('mongoose')
 
 //create a new user
 const createUser = async (req, res) =>{
-    const {LName,FName, Email} = req.body
+    const {LName,FName, Email, Password} = req.body
 
     //add user to db
     try {
-        const user = await UserInfo.create({LName,FName, Email})
+        const user = await UserInfo.create({LName,FName, Email, Password})
         res.status(200).json(user)
     } catch (error) {
         res.status(404).json({error: error.message})

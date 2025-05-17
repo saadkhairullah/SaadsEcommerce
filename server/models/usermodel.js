@@ -5,16 +5,20 @@ const schema = mongoose.Schema
 const userSchema = new schema({
 
     FName: {
-        type: String,
-        required: true
+        type: String
     },
     
     LName: {
-        type: String,
-        required: true
+        type: String
     },
 
     Email:{
+        type: String,
+        required: true,
+        unique: true
+    },
+
+    Password: {
         type: String,
         required: true
     },

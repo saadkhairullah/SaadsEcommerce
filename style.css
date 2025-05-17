@@ -83,6 +83,18 @@ left: 2.5px;
     align-items: center;
     justify-content: center;
 }
+
+.loginpopup{
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .popupcontent{
     border-radius: 5px;
     width: 350px;
@@ -90,6 +102,15 @@ left: 2.5px;
     padding: 50px;
     position: absolute;
 }
+
+.loginpopupcontent{
+    border-radius: 5px;
+    width: 350px;
+    background: white;
+    padding: 50px;
+    position: absolute;
+}
+
 input{
     margin: 20px auto;
     display: inline;
@@ -106,19 +127,55 @@ input{
 
 }
 
+.loginxbtn {
+    border: none; /* Remove default border */
+    padding: 0; /* Remove default padding */
+    background: none; /* Remove default background */
+    cursor: pointer; /* Change cursor to pointer */
+
+}
+
 .xbtn img {
     display: flex; /* Remove default spacing */
     width: 25px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
     border-radius: 20px;
     position: absolute;
-    bottom: 480px;
+    bottom: 400px;
     left: 440px;
 }
+
+.loginxbtn img {
+    display: flex; /* Remove default spacing */
+    width: 25px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 20px;
+    position: absolute;
+    bottom: 330px;
+    left: 440px;
+}
+
 .popup h2{
     color: #000000;
 }
+.loginpopup h2{
+    color: #000000;
+}
 .SubmitBtn{
+    display: flex; /* Remove default spacing */
+    height: 25px; /* Maintain aspect ratio */
+    width: 78px;
+    font-size: large;
+    position: relative;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: linear-gradient(to right, #f86f6f 0%, #861d00 100%);
+    color: rgb(228, 227, 227);
+    border-radius: 8px;
+    top: 20px;
+    left: 140px;
+
+}
+.LogInSubmitBtn{
     display: flex; /* Remove default spacing */
     height: 25px; /* Maintain aspect ratio */
     width: 78px;
@@ -137,6 +194,13 @@ input{
     border-radius: 10px;
     position: absolute;
     bottom: 375px;
+    left: 20px;
+}
+.LogInPopUpLogo{
+    width: 100px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 225px;
     left: 20px;
 }
 .HomeLink{

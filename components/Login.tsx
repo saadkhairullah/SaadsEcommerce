@@ -1,11 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 
-const SignUpForm = ({ClosePopUp}: any) => {
-// function PopUp({ClosePopUp}: any)  {
+const SignInForm = ({ClosePopUp}: any) => {
 
-    const [FName, setfName] = useState('')
-    const [LName, setlName] = useState('')
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
     const [error, setError] = useState(null)
@@ -13,7 +10,7 @@ const SignUpForm = ({ClosePopUp}: any) => {
     const handleSubmmit = async (e: any)=> {
         e.preventDefault()
 
-        const UserInfo = {FName,LName, Email,Password}
+        const UserInfo = {Email ,Password}
 
         const response = await fetch('http://localhost:8080/api/home/', {
             method: 'POST',
@@ -38,30 +35,18 @@ const SignUpForm = ({ClosePopUp}: any) => {
 
             setError(null)
             setEmail('')
-            setfName('')
-            setlName('')
             setPassword('')
-            console.log('New User Created', userJson)
+            console.log('New User Logged', userJson)
         }
     }
   
-    return  <form onSubmit={handleSubmmit} className='popup'> 
-        <div className="popupcontent">
-        <h2>Sign Up</h2>
-        <img src ="photos/logo.webp" className="PopUpLogo"></img>
-        <button onClick={()=> ClosePopUp(false)}className="xbtn" id="xbtn">
-            <img src="photos/x.png" alt="xbtn" className="xbtn" id="xbtn"></img>
+    return  <form onSubmit={handleSubmmit} className='loginpopup'> 
+        <div className="loginpopupcontent">
+        <h2>Sign In</h2>
+        <img src ="photos/logo.webp" className="LogInPopUpLogo"></img>
+        <button onClick={()=> ClosePopUp(false)}className="loginxbtn" id="loginxbtn">
+            <img src="photos/x.png" alt="loginxbtn" className="loginxbtn" id="loginxbtn"></img>
         </button>
-        <input type="text" placeholder="First Name"
-        onChange={(e)=> setfName(e.target.value)}
-        value = {FName}
-        />
-      
-        <input type="text" placeholder="Last Name" 
-        onChange={(e)=> setlName(e.target.value)}
-        value = {LName}
-        />
-
         <input type="email" placeholder="Email" 
         onChange={(e)=> setEmail(e.target.value)}
         value = {Email}
@@ -70,11 +55,10 @@ const SignUpForm = ({ClosePopUp}: any) => {
         onChange={(e)=> setPassword(e.target.value)}
         value = {Password}
         />
-        
-        <button id ="SubmitBtn" className="SubmitBtn">Submit</button>
+        <button id ="LogInSubmitBtn" className="LogInSubmitBtn">Submit</button>
     </div>
 </form>
 }
 // }
 
-export default SignUpForm
+export default SignInForm
