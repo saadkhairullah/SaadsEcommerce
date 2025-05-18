@@ -1,14 +1,28 @@
 const UserInfo = require('../models/usermodel')
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
 
 //create a new user
 const createUser = async (req, res) =>{
-    const {LName,FName, Email, Password} = req.body
+    const {FName,LName, Email, Password} = req.body
 
     //add user to db
     try {
-        const user = await UserInfo.create({LName,FName, Email, Password})
+        const exists = await UserInfo.findOne({Email})
+        
+            // make sure email isnt already being used
+            if (exists){
+                throw Error('Email Already Used')
+            }
+
+            // incrypt password before creating user
+
+            const salt = await bcrypt.genSalt(10)
+            const hash = await bcrypt.hash(Password, salt)
+        
+            const user = await UserInfo.create({FName, LName, Email, Password: hash})
+
         res.status(200).json(user)
     } catch (error) {
         res.status(404).json({error: error.message})
@@ -102,9 +116,13 @@ const updateEmail = async (req, res) => {
     }
     res.status(200).json(user)
 }
+const loginUser = async (req, res) => {
+    res.json({mssg: 'Logged In'})
+}
 
 module.exports = {
     createUser,
+    loginUser,
     getUsers,
     getUser,
     updateFirstName,

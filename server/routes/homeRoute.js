@@ -2,6 +2,7 @@ const express = require('express');
 const UserInfo = require('../models/usermodel')
 const {
     createUser,
+    loginUser,
     getUsers,
     getUser,
     deleteUser,
@@ -17,6 +18,8 @@ router.get('/', getUsers);
 router.get('/:id', getUser);
 
 router.post('/', createUser);
+
+router.post('/', loginUser);
 
 router.delete('/:id', deleteUser)
 
