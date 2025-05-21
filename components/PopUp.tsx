@@ -15,7 +15,7 @@ const SignUpForm = ({ClosePopUp}: any) => {
 
         const UserInfo = {FName,LName, Email,Password}
 
-        const response = await fetch('http://localhost:8080/api/home/', {
+        const response = await fetch('http://localhost:8080/api/home/Signup', {
             method: 'POST',
             body: JSON.stringify(UserInfo),
             headers: {

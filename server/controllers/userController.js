@@ -1,8 +1,44 @@
 const UserInfo = require('../models/usermodel')
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
+const createToken = (_id) => {
+    return jwt.sign({_id}, process.env.SECRETSTRING, {expiresIn: '7d'})
+}
+const loginUser = async (req, res) => {
+    const {Email, Password} = req.body
 
+    if(!Email||!Password){
+
+        throw Error('All fields must be filled out')
+    }
+
+    //add user to db
+    try {
+        const exists = await UserInfo.findOne({Email})
+        
+            // make sure email isnt already being used
+            if (!exists)
+            {
+                throw Error('Email Is not signed up')
+            }
+
+            // incrypt password before creating user
+            const match = await bcrypt.compare(Password, exists.Password)
+
+            if (!match)
+            {
+                throw Error('incorrect password')
+            }
+            if (match){
+        const token = createToken(exists._id)
+
+        res.status(200).json({Email, token})}
+    } catch (error) {
+        res.status(404).json({error: error.message})
+    }
+}
 //create a new user
 const createUser = async (req, res) =>{
     const {FName,LName, Email, Password} = req.body
@@ -23,7 +59,9 @@ const createUser = async (req, res) =>{
         
             const user = await UserInfo.create({FName, LName, Email, Password: hash})
 
-        res.status(200).json(user)
+            const token = createToken(user._id)
+
+        res.status(200).json({FName, LName, Email, Password: hash, token})
     } catch (error) {
         res.status(404).json({error: error.message})
     }
@@ -116,9 +154,7 @@ const updateEmail = async (req, res) => {
     }
     res.status(200).json(user)
 }
-const loginUser = async (req, res) => {
-    res.json({mssg: 'Logged In'})
-}
+
 
 module.exports = {
     createUser,
