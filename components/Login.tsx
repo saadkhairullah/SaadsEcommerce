@@ -12,7 +12,7 @@ const SignInForm = ({ClosePopUp}: any) => {
 
         const UserInfo = {Email ,Password}
 
-        const response = await fetch('http://localhost:8080/api/home/', {
+        const response = await fetch('http://localhost:8080/api/home/Login', {
             method: 'POST',
             body: JSON.stringify(UserInfo),
             headers: {
