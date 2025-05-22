@@ -51,6 +51,7 @@ const createUser = async (req, res) =>{
             if (exists){
                 throw Error('Email Already Used')
             }
+            
 
             // incrypt password before creating user
 
@@ -61,7 +62,7 @@ const createUser = async (req, res) =>{
 
             const token = createToken(user._id)
 
-        res.status(200).json({FName, LName, Email, Password: hash, token})
+        res.status(200).json({FName, LName, Email, token})
     } catch (error) {
         res.status(404).json({error: error.message})
     }

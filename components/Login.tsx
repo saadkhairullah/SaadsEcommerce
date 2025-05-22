@@ -1,43 +1,20 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useLogin } from '../hooks/useLogin'
+
 
 const SignInForm = ({ClosePopUp}: any) => {
 
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
-    const [error, setError] = useState(null)
+    const {login, error, isLoading} = useLogin()
 
     const handleSubmmit = async (e: any)=> {
         e.preventDefault()
 
-        const UserInfo = {Email ,Password}
 
-        const response = await fetch('http://localhost:8080/api/home/Login', {
-            method: 'POST',
-            body: JSON.stringify(UserInfo),
-            headers: {
-            'Content-Type': 'application/json'
-            }
-            
-        })
+        await login(Email, Password)
 
-        const userJson = await response.json()
-
- //if the user could not be created print an error
-
-        if(!response.ok){
-          setError(userJson.error)
-        }
-
-// user was created, now we reset the form so we can add another one again 
-
-        if(response.ok){
-
-            setError(null)
-            setEmail('')
-            setPassword('')
-            console.log('New User Logged', userJson)
-        }
     }
   
     return  <form onSubmit={handleSubmmit} className='loginpopup'> 
@@ -55,9 +32,11 @@ const SignInForm = ({ClosePopUp}: any) => {
         onChange={(e)=> setPassword(e.target.value)}
         value = {Password}
         />
-        <button id ="LogInSubmitBtn" className="LogInSubmitBtn">Submit</button>
+        <button disabled = {isLoading} id ="LogInSubmitBtn" className="LogInSubmitBtn">Submit</button>
+        {error && <div className="error">{error}</div>}
     </div>
 </form>
+
 }
 // }
 

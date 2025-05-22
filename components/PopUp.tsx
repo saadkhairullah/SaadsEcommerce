@@ -11,11 +11,14 @@ const SignUpForm = ({ClosePopUp}: any) => {
     const [Password, setPassword] = useState('')
     const {signup, isLoading, error} = useSignup()
 
+
     const handleSubmmit = async (e: React.FormEvent)=> {
         e.preventDefault()
 
     await signup(FName,LName,Email,Password)
+    
 
+    }
 //         const UserInfo = {FName,LName, Email,Password}
 
 //         const response = await fetch('http://localhost:8080/api/home/Signup', {
@@ -46,7 +49,7 @@ const SignUpForm = ({ClosePopUp}: any) => {
 //             console.log('New User Created', userJson)
 //         }
 //     }
-    }
+    
     return  <form onSubmit={handleSubmmit} className='popup'> 
         <div className="popupcontent">
         <h2>Sign Up</h2>
@@ -73,8 +76,8 @@ const SignUpForm = ({ClosePopUp}: any) => {
         value = {Password}
         />
         
-        <button id ="SubmitBtn" className="SubmitBtn">Submit</button>
-        {/* {error && <div className = "error" > {error} </div>} */}
+        <button id ="SubmitBtn" className="SubmitBtn" disabled= {isLoading}>Submit</button>
+        {error && <div className = "error" > {error} </div>}
     </div>
 </form>
 }

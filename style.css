@@ -61,12 +61,12 @@ left: 2.5px;
     margin-right: 10px;
     margin-top: 18px;
     border-radius: 20px;
-     background-image: linear-gradient(to right, #f66a65 0%, #6e0000 100%);
-     border: none;
-     color: white;
-     padding: 15px 32px;
-     font-size: 16px;
-     cursor: pointer;
+    background-image: linear-gradient(to right, #f66a65 0%, #6e0000 100%);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    cursor: pointer;
     float: right;
 }
 .signup:hover {
@@ -77,7 +77,7 @@ left: 2.5px;
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     display: flex;
     align-items: center;
@@ -88,7 +88,7 @@ left: 2.5px;
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     display: flex;
     align-items: center;
@@ -100,7 +100,7 @@ left: 2.5px;
     width: 350px;
     background: white;
     padding: 50px;
-    position: absolute;
+    position: fixed;
 }
 
 .loginpopupcontent{
@@ -108,7 +108,7 @@ left: 2.5px;
     width: 350px;
     background: white;
     padding: 50px;
-    position: absolute;
+    position: fixed;
 }
 
 input{
@@ -124,6 +124,9 @@ input{
     padding: 0; /* Remove default padding */
     background: none; /* Remove default background */
     cursor: pointer; /* Change cursor to pointer */
+    position: absolute;
+    top:10px;
+    bottom: 10px;
 
 }
 
@@ -132,27 +135,29 @@ input{
     padding: 0; /* Remove default padding */
     background: none; /* Remove default background */
     cursor: pointer; /* Change cursor to pointer */
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
 
 }
 
 .xbtn img {
-    display: flex; /* Remove default spacing */
+    /* display: flex;  */
     width: 25px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
     border-radius: 20px;
+    left: 300px;
+    top: -12px;
     position: absolute;
-    bottom: 484px;
-    left: 440px;
 }
 
 .loginxbtn img {
-    display: flex; /* Remove default spacing */
     width: 25px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
     border-radius: 20px;
+    top: -12px;
+    left: 300px;
     position: absolute;
-    bottom: 330px;
-    left: 440px;
 }
 
 .popup h2{
@@ -205,4 +210,31 @@ input{
 }
 .HomeLink{
     font-size: 50px;
+}
+.error{
+    background-color: #f66a65;
+    border-radius: 5px;
+    border-color: #6e0000;
+    color:#6e0000;
+    bottom: 440px;
+    position: relative;
+}
+.logout{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 20px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 18px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #f86f6f 0%, #861d00 100%);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+}
+.logout:hover {
+    background-color: #45a049; /* Lighter Green */
+    color: yellow; /* Change text color */
 }
