@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { useSignup } from "../hooks/useSignup"
 
 const SignUpForm = ({ClosePopUp}: any) => {
 // function PopUp({ClosePopUp}: any)  {
@@ -8,43 +9,44 @@ const SignUpForm = ({ClosePopUp}: any) => {
     const [LName, setlName] = useState('')
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
-    const [error, setError] = useState(null)
+    const {signup, isLoading, error} = useSignup()
 
-    const handleSubmmit = async (e: any)=> {
+    const handleSubmmit = async (e: React.FormEvent)=> {
         e.preventDefault()
 
-        const UserInfo = {FName,LName, Email,Password}
+    await signup(FName,LName,Email,Password)
 
-        const response = await fetch('http://localhost:8080/api/home/Signup', {
-            method: 'POST',
-            body: JSON.stringify(UserInfo),
-            headers: {
-            'Content-Type': 'application/json'
-            }
+//         const UserInfo = {FName,LName, Email,Password}
+
+//         const response = await fetch('http://localhost:8080/api/home/Signup', {
+//             method: 'POST',
+//             body: JSON.stringify(UserInfo),
+//             headers: {
+//             'Content-Type': 'application/json'
+//             }
             
-        })
+//         })
 
-        const userJson = await response.json()
+//         const userJson = await response.json()
 
- //if the user could not be created print an error
+//  //if the user could not be created print an error
 
-        if(!response.ok){
-          setError(userJson.error)
-        }
+//         if(!response.ok){
+//           setError(userJson.error)
+//         }
 
-// user was created, now we reset the form so we can add another one again 
+// // user was created, now we reset the form so we can add another one again 
 
-        if(response.ok){
+//         if(response.ok){
 
-            setError(null)
-            setEmail('')
-            setfName('')
-            setlName('')
-            setPassword('')
-            console.log('New User Created', userJson)
-        }
+//             setEmail('')
+//             setfName('')
+//             setlName('')
+//             setPassword('')
+//             console.log('New User Created', userJson)
+//         }
+//     }
     }
-  
     return  <form onSubmit={handleSubmmit} className='popup'> 
         <div className="popupcontent">
         <h2>Sign Up</h2>
@@ -72,9 +74,10 @@ const SignUpForm = ({ClosePopUp}: any) => {
         />
         
         <button id ="SubmitBtn" className="SubmitBtn">Submit</button>
+        {/* {error && <div className = "error" > {error} </div>} */}
     </div>
 </form>
 }
-// }
+ 
 
 export default SignUpForm
