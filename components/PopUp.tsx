@@ -15,8 +15,10 @@ const SignUpForm = ({ClosePopUp}: any) => {
     const handleSubmmit = async (e: React.FormEvent)=> {
         e.preventDefault()
 
+// go to useSignup.js
     await signup(FName,LName,Email,Password)
-    
+
+// if the user successfully signs up and gets their info stored in local, we remove the popup from screen
     const exists = localStorage.getItem('user')
     if (exists){
         ClosePopUp(false)

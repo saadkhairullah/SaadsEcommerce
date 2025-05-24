@@ -16,10 +16,11 @@ switch(action.type){
 
 export const AuthContextProvider = ({ children }) =>{
  const [state, dispatch] = useReducer(authReducer, {
+    // user state is intially null (not logged in)
         user: null
     })
     
-    // this useeffect hook assures the user is still in local storage, and refereshes it on the front end
+// this useeffect hook assures the user is still in local storage, and refereshes it on the front end
 useEffect (()=> {
     const user = JSON.parse(localStorage.getItem('user'))
 

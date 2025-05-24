@@ -5,6 +5,8 @@ import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
 
 function Home() {
 
+// this is just a test function that retreives all users ever created and prints them to the screen,
+// to test if my backend is operating
   const [user, setUsers] = useState(null)
   useEffect(() =>{
     const fetchUsers = async ()=>{
@@ -22,7 +24,7 @@ function Home() {
   return (
     <div>
 
-    {/* This is where i left off */}
+    {/* {user && user.map} checks if there is users fetched, then prints them all */}
     
         <Header></Header>
         <Link to ="/about">about</Link>

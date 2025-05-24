@@ -14,7 +14,7 @@ const{ user } = useAuthContext()
 const handleclick = () =>{
     logout()
 }
-
+    // state of the pop ups
     const [Open, isOpen] = useState(false)
     const [LOpen, isLOpen] = useState(false)
     return <header className="MainHeader">

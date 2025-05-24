@@ -13,7 +13,7 @@ const SignInForm = ({ClosePopUp}: any) => {
     const handleSubmmit = async (e: any)=> {
         e.preventDefault()
 
-
+        // go to useLogin.js
         await login(Email, Password)
         
     const exists = localStorage.getItem('user')
@@ -39,11 +39,10 @@ const SignInForm = ({ClosePopUp}: any) => {
         value = {Password}
         />
         <button disabled = {isLoading} id ="LogInSubmitBtn" className="LogInSubmitBtn">Submit</button>
-        {error && <div className="error">{error}</div>}
+        {error && <div className="Loginerror">{error}</div>}
     </div>
 </form>
 
 }
-// }
 
 export default SignInForm

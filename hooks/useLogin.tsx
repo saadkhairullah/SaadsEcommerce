@@ -6,7 +6,8 @@ export const useLogin = () => {
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(null)
     const {dispatch} = useAuthContext()
-
+    
+    //logs users in
     const login = async (Email, Password) => {
         setIsLoading(true)
         setError(null)

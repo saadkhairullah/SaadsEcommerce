@@ -2,6 +2,7 @@ const UserInfo = require('../models/usermodel')
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const validator = require('validator');
 
 const createToken = (_id) => {
     return jwt.sign({_id}, process.env.SECRETSTRING, {expiresIn: '7d'})
@@ -9,13 +10,12 @@ const createToken = (_id) => {
 const loginUser = async (req, res) => {
     const {Email, Password} = req.body
 
-    if(!Email||!Password){
+    //add user to db
+    try {
+        if(!Email||!Password){
 
         throw Error('All fields must be filled out')
     }
-
-    //add user to db
-    try {
         const exists = await UserInfo.findOne({Email})
         
             // make sure email isnt already being used
@@ -45,6 +45,17 @@ const createUser = async (req, res) =>{
 
     //add user to db
     try {
+
+        //validate email and password
+    if(!Email||!Password){
+        throw Error('All fields must be filled out')
+    }
+    else if(!validator.isEmail(Email)){
+        throw Error('Email Is not a valid Email')
+    }
+    else if(!validator.isStrongPassword(Password)){
+        throw Error('Password not strong enough')
+    }
         const exists = await UserInfo.findOne({Email})
         
             // make sure email isnt already being used
