@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useLogin } from '../hooks/useLogin'
+import { useAuthContext } from "../hooks/useAuthContext";
 
 
 const SignInForm = ({ClosePopUp}: any) => {
@@ -14,9 +15,14 @@ const SignInForm = ({ClosePopUp}: any) => {
 
 
         await login(Email, Password)
+        
+    const exists = localStorage.getItem('user')
+    if (exists){
+        ClosePopUp(false)
+    }
 
     }
-  
+
     return  <form onSubmit={handleSubmmit} className='loginpopup'> 
         <div className="loginpopupcontent">
         <h2>Sign In</h2>

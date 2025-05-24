@@ -1,5 +1,6 @@
 const express = require('express');
 const UserInfo = require('../models/usermodel')
+
 const {
     createUser,
     loginUser,
@@ -12,6 +13,7 @@ const {
 } = require('../controllers/userController')
 
 const router = express.Router();
+
 
 router.get('/', getUsers);
 

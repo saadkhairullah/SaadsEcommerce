@@ -17,39 +17,13 @@ const SignUpForm = ({ClosePopUp}: any) => {
 
     await signup(FName,LName,Email,Password)
     
+    const exists = localStorage.getItem('user')
+    if (exists){
+        ClosePopUp(false)
+    }
 
     }
-//         const UserInfo = {FName,LName, Email,Password}
 
-//         const response = await fetch('http://localhost:8080/api/home/Signup', {
-//             method: 'POST',
-//             body: JSON.stringify(UserInfo),
-//             headers: {
-//             'Content-Type': 'application/json'
-//             }
-            
-//         })
-
-//         const userJson = await response.json()
-
-//  //if the user could not be created print an error
-
-//         if(!response.ok){
-//           setError(userJson.error)
-//         }
-
-// // user was created, now we reset the form so we can add another one again 
-
-//         if(response.ok){
-
-//             setEmail('')
-//             setfName('')
-//             setlName('')
-//             setPassword('')
-//             console.log('New User Created', userJson)
-//         }
-//     }
-    
     return  <form onSubmit={handleSubmmit} className='popup'> 
         <div className="popupcontent">
         <h2>Sign Up</h2>

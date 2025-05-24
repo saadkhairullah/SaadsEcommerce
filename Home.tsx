@@ -5,8 +5,7 @@ import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
 
 function Home() {
 
-  const
-  [user, setUsers] = useState(null)
+  const [user, setUsers] = useState(null)
   useEffect(() =>{
     const fetchUsers = async ()=>{
       const response = await fetch('http://localhost:8080/api/home/')
