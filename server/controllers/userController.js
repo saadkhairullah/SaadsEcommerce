@@ -34,7 +34,14 @@ const loginUser = async (req, res) => {
             if (match){
         const token = createToken(exists._id)
 
-        res.status(200).json({Email, token})}
+        res.status(200).json({
+                _id: exists._id,
+                FName: exists.FName,
+                LName: exists.LName,
+                Email: exists.Email,
+                token
+            })
+        }
     } catch (error) {
         res.status(404).json({error: error.message})
     }
@@ -119,53 +126,33 @@ const deleteUser = async (req, res) => {
     res.status(200).json(user)
 }
 //update a user name
-const updateFirstName = async (req, res) => {
-    const { id } = req.params // pass in the id of the user
-    const {FName} = req.body
-
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No User Found with that First Name!'})
-    }
-
-    const user = await UserInfo.findOneAndUpdate({_id: id}, {FName: FName})
-
-    if(!user){
-        return res.status(404).json({error: 'No User Found with that First Name!'})
-    }
-    res.status(200).json(user)
-}
-
-const updateLastName = async (req, res) => {
-    const { id } = req.params // pass in the id of the user
-    const {LName} = req.body
-
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No User Found with that Last Name!'})
-    }
-
-    const user = await UserInfo.findOneAndUpdate({_id: id}, {LName: LName})
-
-    if(!user){
-        return res.status(404).json({error: 'No User Found with that Last Name!'})
-    }
-    res.status(200).json(user)
-}
-
-const updateEmail = async (req, res) => {
+const updateUser = async (req, res) => {
     const { id } = req.params
-    const {Email} = req.body
+    const { FName, LName, Email } = req.body
 
     if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No User Found with that Email!'})
+        return res.status(404).json({error: 'No User Found!'})
     }
 
-    const user = await UserInfo.findOneAndUpdate({_id: id}, {Email: Email})
+    const updateFields = {}
+    if (FName) updateFields.FName = FName
+    if (LName) updateFields.LName = LName
+    if (Email) updateFields.Email = Email
+
+    const user = await UserInfo.findOneAndUpdate({_id: id}, updateFields, {new: true})
 
     if(!user){
-        return res.status(404).json({error: 'No User Found with that Email!'})
+        return res.status(404).json({error: 'No User Found!'})
     }
-    res.status(200).json(user)
+    res.status(200).json({
+        _id: user._id,
+        FName: user.FName,
+        LName: user.LName,
+        Email: user.Email,
+        token: req.headers.authorization.split(' ')[1]
+    })
 }
+
 
 
 module.exports = {
@@ -173,8 +160,6 @@ module.exports = {
     loginUser,
     getUsers,
     getUser,
-    updateFirstName,
-    updateLastName,
-    deleteUser,
-    updateEmail,
+    updateUser,
+    deleteUser
 }

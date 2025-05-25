@@ -12,7 +12,7 @@ export const useUpdateInfo = () => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('http://localhost:8080/api/userSettings/' + user._id, {
+        const response = await fetch(`http://localhost:8080/api/userSettings/${user._id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,6 +21,7 @@ export const useUpdateInfo = () => {
             body: JSON.stringify({FName, LName, Email})
         })
         const json = await response.json()
+        console.log(user._id)
         if(!response.ok){
             setIsLoading(false)
             setError(json.error)
@@ -31,7 +32,7 @@ export const useUpdateInfo = () => {
             localStorage.setItem('user', JSON.stringify(json))
 
             //update Auth Contetxt
-            dispatch({type:'UPDATE_USER', payload: json})
+            dispatch({type:'LOGIN', payload: json})
 
             setIsLoading(false)
         }

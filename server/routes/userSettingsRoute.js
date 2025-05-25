@@ -3,14 +3,10 @@ const UserInfo = require('../models/usermodel')
 const requireAuth = require('../middleware/authMiddleware');
 
 const {
-    createUser,
-    loginUser,
-    getUsers,
+    updateUser,
     getUser,
     deleteUser,
-    updateFirstName,
-    updateLastName,
-    updateEmail,
+
 } = require('../controllers/userController')
 
 const router = express.Router();
@@ -20,10 +16,7 @@ router.get('/:id',requireAuth, getUser);
 
 router.delete('/:id', requireAuth, deleteUser)
 
-router.patch('/:id',requireAuth, updateFirstName)
+router.patch('/:id',requireAuth, updateUser)
 
-router.patch('/:id',requireAuth, updateLastName)
-
-router.patch('/:id', requireAuth, updateEmail)
 
 module.exports = router;

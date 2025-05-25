@@ -5,12 +5,7 @@ const requireAuth = require('../middleware/authMiddleware');
 const {
     createUser,
     loginUser,
-    getUsers,
-    getUser,
-    deleteUser,
-    updateFirstName,
-    updateLastName,
-    updateEmail,
+    getUsers
 } = require('../controllers/userController')
 
 const router = express.Router();
