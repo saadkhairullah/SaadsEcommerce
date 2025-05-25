@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require('mongoose')
 const homeRoutes = require('./routes/homeRoute')
 const aboutRoutes= require('./routes/aboutRoute')
+const userSettingsRoutes = require('./routes/userSettingsRoute')
 const cors = require('cors')
 
 app.use(
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use('/api/home', homeRoutes);
 app.use('/api/about', aboutRoutes);
+app.use('/api/userSettings', userSettingsRoutes);
 
 mongoose.connect(process.env.MONGO_URL)
 // listen to requests after connection to data base

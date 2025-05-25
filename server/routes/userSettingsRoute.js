@@ -15,13 +15,15 @@ const {
 
 const router = express.Router();
 
-//non protected api routes
-router.post('/Signup', createUser);
+// protected api routes
+router.get('/:id',requireAuth, getUser);
 
-router.post('/Login', loginUser);
+router.delete('/:id', requireAuth, deleteUser)
 
-router.get('/',  getUsers);
+router.patch('/:id',requireAuth, updateFirstName)
 
+router.patch('/:id',requireAuth, updateLastName)
 
+router.patch('/:id', requireAuth, updateEmail)
 
 module.exports = router;

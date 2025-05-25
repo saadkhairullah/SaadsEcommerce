@@ -3,6 +3,7 @@ import SignUpForm from "./PopUp";
 import SignInForm from "./Login";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 
@@ -18,7 +19,8 @@ const handleclick = () =>{
     const [Open, isOpen] = useState(false)
     const [LOpen, isLOpen] = useState(false)
     return <header className="MainHeader">
-    {user &&(<button onClick={handleclick} id= 'logout' className="logout">Log Out</button>)}
+    {user &&(<div> <Link to ="/userSettings" className="userSettingsLink">about</Link>
+    <button onClick={handleclick} id= 'logout' className="logout">Log Out</button></div>)}
     {!user &&( <div><button  onClick={() => {isOpen(true)}}id = "signup" className="signup">Sign up</button>
     <button  onClick={() => {isLOpen(true)}}className="signin" id="signin">Log in</button></div>)}
     {Open && <SignUpForm ClosePopUp={isOpen}/>}

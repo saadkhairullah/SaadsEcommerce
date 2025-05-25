@@ -28,7 +28,7 @@ next()
 }
 catch(error){
     console.log(error)
-    res.status(404).json({error: "The authorization token was revoked"})
+    res.status(401).json({error: "The authorization token was revoked"})
 }
 }
 module.exports = requireAuth

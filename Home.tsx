@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Header from "./components/Header"
 import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
+import { useAuthContext } from './hooks/useAuthContext'
 
 
 function Home() {
 
 // this is just a test function that retreives all users ever created and prints them to the screen,
 // to test if my backend is operating
-  const [user, setUsers] = useState(null)
+  const [users, setUsers] = useState(null)
   useEffect(() =>{
     const fetchUsers = async ()=>{
-      const response = await fetch('http://localhost:8080/api/home/')
+  
+
+    const response = await fetch('http://localhost:8080/api/home/')
       const json = await response.json()
       
 
@@ -29,8 +32,8 @@ function Home() {
         <Header></Header>
         <Link to ="/about">about</Link>
         <div className='Users'>
-          {user && user.map((user) =>(
-          <p key = {user._id}>{user._id}</p>)
+          {users && users.map((users) =>(
+          <p key = {users._id}>{users._id}</p>)
         )}
         </div>
     </div>
