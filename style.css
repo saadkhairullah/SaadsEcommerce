@@ -1,77 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-image: url(photos/background.jpg);
+    background-color:rgb(255, 255, 255);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
-header {
-    background-color: #000000;
+.MainHeader {
+background-image: url('/photos/possiblyheader.jpg');
     color: white;
     padding: 10px 0;
     text-align: center;
-    height: 90px;
-    border-radius: 10px;
+    height: 85px;
+    overflow: hidden;
+
 }
 main {
-    background-color: rgb(223, 180, 180);
+    background-color: rgb(189, 178, 178);
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
 }
 footer {
     text-align: center;
     margin-top: 20px;
     color: #777;
 }
+.headerText{
+    margin-top: 15px;
+     font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    overflow: hidden;
+    text-align: left;
+    margin-left: 100px;
+    color:rgb(100, 1, 1)
+}
+@media (max-width: 600px) {
+  .headerText {
+    display: none;
+  }
+}
 .logo {
-width: 100px;
+width: 80px;
 border-radius: 10px;
 float: left;
 position: relative;
-top: -5px;
-left: 2.5px;
+top: -9.51px;
+left: 6.5px;
 }
 .signin{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
     padding: 20px;
     float: right;
-    margin-right: 10px;
-    margin-top: 18px;
-    border-radius: 20px;
-    background-image: linear-gradient(to right, #f86f6f 0%, #861d00 100%);
-    border: none;
-    color: white;
+    margin-right: 24px;
+    margin-top: 7px;
+     border-radius: 10px;
     padding: 15px 32px;
     font-size: 16px;
     cursor: pointer;
     z-index: 10;
+    font-weight: 900;
     
 }
 .signin:hover {
-    background-color: #45a049; /* Lighter Green */
-    color: yellow; /* Change text color */
+    background-color: #640000;
+    color: yellow;
 }
 .signup{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 20px;
     float: right;
-    margin-right: 10px;
-    margin-top: 18px;
-    border-radius: 20px;
-    background-image: linear-gradient(to right, #f66a65 0%, #6e0000 100%);
-    border: none;
-    color: white;
+    margin-right: 24px;
+    margin-top: 7px;
+     border-radius: 10px;
     padding: 15px 32px;
     font-size: 16px;
     cursor: pointer;
-    float: right;
+    z-index: 10;
+    font-weight: 900;
 }
 .signup:hover {
-    background-color: #45a049; /* Lighter Green */
-    color: yellow; /* Change text color */
+     background-color: #640000; 
+    color: yellow; 
 }
 .popup{
     background: rgba(0, 0, 0, 0.5);
@@ -142,7 +157,6 @@ input{
 }
 
 .xbtn img {
-    /* display: flex;  */
     width: 25px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
     border-radius: 20px;
@@ -208,9 +222,6 @@ input{
     bottom: 225px;
     left: 20px;
 }
-.HomeLink{
-    font-size: 50px;
-}
 .error{
     background-color: #f66a65;
     border-radius: 5px;
@@ -219,24 +230,33 @@ input{
     bottom: 440px;
     position: relative;
 }
+.userSettingsLink{
+background: none;
+border: none;
+ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    float: right;
+    margin-right: 20px;
+    margin-top: 7px;
+    border-radius: 20px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
 .logout{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 20px;
     float: right;
-    margin-right: 10px;
-    margin-top: 18px;
-    border-radius: 20px;
-    background-image: linear-gradient(to right, #f86f6f 0%, #861d00 100%);
-    border: none;
-    color: white;
+    margin-right: 24px;
+    margin-top: 7px;
+     border-radius: 10px;
     padding: 15px 32px;
     font-size: 16px;
     cursor: pointer;
     z-index: 10;
+     font-weight: 900;
 }
 .logout:hover {
-    background-color: #45a049; /* Lighter Green */
-    color: yellow; /* Change text color */
+   background-color: #640000;
+    color: yellow;
 }
 .Loginerror{
     background-color: #f66a65;
@@ -245,4 +265,113 @@ input{
     color:#6e0000;
     bottom: 285px;
     position: relative;
+}
+ .blend-section {
+  position: relative;
+  height: 600px;
+  background: url('photos/1stphoto.png') no-repeat center center/cover;
+  width: 100%;
+  display: flex;
+  color: white;
+  overflow:hidden;
+  justify-content: left;
+  margin-top: 30px;
+
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  background: linear-gradient(245deg, #000000 40%, rgba(0, 0, 0, 0.596), transparent);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  width: 40%;
+  margin-left: auto;
+  text-align: center;
+ justify-content: center;
+ align-items: center;
+  color: aliceblue;
+ font-size:xx-large;
+ font-family:sans-serif;
+   display: flex;
+
+}
+.subHeader{
+background-color: #535353 !important;
+border-top: 1px solid rgb(0, 0, 0);
+padding: 10px !important;
+height: 5%;
+position: relative;
+display: flex;
+width: 100%;
+z-index: 1050;
+}
+.contentText{
+  animation: neonPulse 4s infinite ease-in-out;
+  position: absolute;
+  margin-bottom: 300px;
+}
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 10px #ffffff,
+      0 0 14px #adadad,
+      0 0 18px #5e5e5e,
+      0 0 20px #252525;
+    color: #3b3b3b;
+  }
+  50% {
+    text-shadow:
+      0 0 14px #696969,
+      0 0 14px #3d3d3d,
+      0 0 16px #353535,
+      0 0 16px #2c2c2c;
+    color: #585858;
+  }
+}
+@keyframes neonPulsebox {
+  0%, 100% {
+    box-shadow:
+      0 0 15px #ffffff,
+      0 0 16px #adadad,
+      0 0 18px #868686,
+      0 0 20px #353535;
+    color: #3b3b3b;
+  }
+  50% {
+    box-shadow:
+      0 0 20px #696969,
+      0 0 24px #3d3d3d,
+      0 0 24px #353535,
+      0 0 28px #2c2c2c;
+    color: #585858;
+  }
+}
+.contentButton{
+animation: neonPulsebox 4s infinite ease-in-out;
+  position: absolute;
+  top:300px;
+  padding: 10px;
+  align-items: flex-start;
+  border: #440000 solid 1px;
+}
+.aboutLink:hover{
+  background-color: #810000;
+  border-radius: 5px;             /* Optional: rounded corners */
+  transition: background 0.2s, color 0.2s;
+}
+.servicesLink:hover{
+  background-color: #810000;
+  border-radius: 5px;             /* Optional: rounded corners */
+  transition: background 0.2s, color 0.2s;
+}
+.contactLink:hover{
+  background-color: #810000;
+  border-radius: 5px;             /* Optional: rounded corners */
+  transition: background 0.2s, color 0.2s;
 }

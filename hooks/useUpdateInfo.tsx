@@ -21,15 +21,17 @@ export const useUpdateInfo = () => {
             body: JSON.stringify({FName, LName, Email})
         })
         const json = await response.json()
-        console.log(user._id)
+
         if(!response.ok){
             setIsLoading(false)
             setError(json.error)
+            console.log("HERE!")
         }
+        
         if(response.ok){
             // save the user to local storage
             // we are saving the email and token to local storage at thi phase...
-            localStorage.setItem('user', JSON.stringify(json))
+            localStorage.setItem('user', JSON.stringify(json) )
 
             //update Auth Contetxt
             dispatch({type:'LOGIN', payload: json})

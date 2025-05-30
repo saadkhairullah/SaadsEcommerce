@@ -8,6 +8,7 @@ function UserSettings(){
     const [FName, setfName] = useState('')
         const [LName, setlName] = useState('')
         const [Email, setEmail] = useState('')
+        const [Error, setError] = useState('')
         const {updateInfo, isLoading, error} = useUpdateInfo()
         const { user } = useAuthContext();
 
@@ -18,15 +19,20 @@ function UserSettings(){
             setEmail(user.Email || '');
         }
     }, [user]);
-    
-    
+
         const handleSubmmit = async (e: React.FormEvent)=> {
             e.preventDefault()
-    
-    // go to useSignup.js
-        await updateInfo(FName,LName,Email)
-        }
+            
+            if (!user){
+                setError('Please Log in!')
+                return
+            }
 
+    // go to useUpdateInfo.js
+        await updateInfo(FName,LName,Email)
+        
+        }
+        
     return (<Fragment><form onSubmit={handleSubmmit}>
         <header>
         <img src="/photos/logo.webp"  alt="logo" className ="logo"></img>
