@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Header from "./components/Header"
+import Hero from './components/Hero';
 import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -57,13 +58,13 @@ const navigate = useNavigate()
           </Nav>
         </Navbar.Collapse>
         </Navbar>
-        <div className="blend-section">
-  <div className="overlay"></div>
-  <div className="content">
-    <button className='btn btn-outline-secondary contentButton'>Tranfsorm Your Ride</button>
-    <h2 className='contentText'> Precut for Precision. Built for Performance.</h2>
-  </div>
-  </div>
+        <Hero></Hero>
+
+        <div className='subHero'>
+        <div className='whySection'> <img src="photos/logo.webp" alt="logo" /> So Why Choose Glimmer Guard?</div>
+
+        </div>
+
         <div className='Users'>
           {users && users.map((users) =>(
           <p key = {users._id}>{users._id}</p>)

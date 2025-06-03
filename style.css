@@ -39,7 +39,7 @@ footer {
     overflow: hidden;
     text-align: left;
     margin-left: 100px;
-    color:rgb(100, 1, 1)
+    color:rgb(255, 255, 255)
 }
 @media (max-width: 600px) {
   .headerText {
@@ -54,7 +54,7 @@ position: relative;
 top: -9.51px;
 left: 6.5px;
 }
-.signin{
+.signin, .signup{
   
     padding: 20px;
     float: right;
@@ -68,27 +68,12 @@ left: 6.5px;
     font-weight: 900;
     
 }
-.signin:hover {
+.signin:hover, .signup:hover {
     background-color: #640000;
     color: yellow;
 }
-.signup{
-    padding: 20px;
-    float: right;
-    margin-right: 24px;
-    margin-top: 7px;
-     border-radius: 10px;
-    padding: 15px 32px;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 10;
-    font-weight: 900;
-}
-.signup:hover {
-     background-color: #640000; 
-    color: yellow; 
-}
-.popup{
+
+.popup, .loginpopup{
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
@@ -97,33 +82,16 @@ left: 6.5px;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 5;
 }
 
-.loginpopup{
-    background: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.popupcontent{
+.popupcontent, .loginpopupcontent{
     border-radius: 5px;
     width: 350px;
     background: white;
     padding: 50px;
     position: fixed;
-}
-
-.loginpopupcontent{
-    border-radius: 5px;
-    width: 350px;
-    background: white;
-    padding: 50px;
-    position: fixed;
+    z-index: 5;
 }
 
 input{
@@ -132,9 +100,10 @@ input{
     padding: 8px;
     border-radius: 5px;
     border-color:#f66a65;
+    z-index: 5;
 
 }
-.xbtn {
+.xbtn, .loginxbtn{
     border: none; /* Remove default border */
     padding: 0; /* Remove default padding */
     background: none; /* Remove default background */
@@ -142,45 +111,24 @@ input{
     position: absolute;
     top:10px;
     bottom: 10px;
+    z-index: 5;
 
 }
 
-.loginxbtn {
-    border: none; /* Remove default border */
-    padding: 0; /* Remove default padding */
-    background: none; /* Remove default background */
-    cursor: pointer; /* Change cursor to pointer */
-    position: absolute;
-    top: 10px;
-    bottom: 10px;
-
-}
-
-.xbtn img {
+.xbtn img, .loginxbtn img  {
     width: 25px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
     border-radius: 20px;
     left: 300px;
     top: -12px;
     position: absolute;
+    z-index: 5;
 }
 
-.loginxbtn img {
-    width: 25px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 20px;
-    top: -12px;
-    left: 300px;
-    position: absolute;
-}
-
-.popup h2{
+.popup h2, .loginpopup h2{
     color: #000000;
 }
-.loginpopup h2{
-    color: #000000;
-}
-.SubmitBtn{
+.SubmitBtn, .LogInSubmitBtn{
     display: flex; /* Remove default spacing */
     height: 25px; /* Maintain aspect ratio */
     width: 78px;
@@ -192,20 +140,7 @@ input{
     border-radius: 8px;
     top: 20px;
     left: 140px;
-
-}
-.LogInSubmitBtn{
-    display: flex; /* Remove default spacing */
-    height: 25px; /* Maintain aspect ratio */
-    width: 78px;
-    font-size: large;
-    position: relative;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-image: linear-gradient(to right, #f86f6f 0%, #861d00 100%);
-    color: rgb(228, 227, 227);
-    border-radius: 8px;
-    top: 20px;
-    left: 140px;
+    z-index: 5;
 
 }
 .PopUpLogo{
@@ -214,6 +149,7 @@ input{
     position: absolute;
     bottom: 375px;
     left: 20px;
+    z-index: 5;
 }
 .LogInPopUpLogo{
     width: 100px;
@@ -221,6 +157,7 @@ input{
     position: absolute;
     bottom: 225px;
     left: 20px;
+    z-index: 5;
 }
 .error{
     background-color: #f66a65;
@@ -229,6 +166,7 @@ input{
     color:#6e0000;
     bottom: 440px;
     position: relative;
+    z-index: 5;
 }
 .userSettingsLink{
 background: none;
@@ -274,7 +212,6 @@ border: none;
   display: flex;
   color: white;
   overflow:hidden;
-  justify-content: left;
   margin-top: 30px;
 
 }
@@ -315,6 +252,7 @@ z-index: 1050;
   animation: neonPulse 4s infinite ease-in-out;
   position: absolute;
   margin-bottom: 300px;
+  font-weight: 500;
 }
 @keyframes neonPulse {
   0%, 100% {
@@ -337,19 +275,19 @@ z-index: 1050;
 @keyframes neonPulsebox {
   0%, 100% {
     box-shadow:
-      0 0 15px #ffffff,
-      0 0 16px #adadad,
-      0 0 18px #868686,
-      0 0 20px #353535;
-    color: #3b3b3b;
+      0 0 12px #ffffff,
+      0 0 14px #adadad,
+      0 0 16px #868686,
+      0 0 18px #353535;
+    color: #b1b1b1;
   }
   50% {
     box-shadow:
-      0 0 20px #696969,
-      0 0 24px #3d3d3d,
-      0 0 24px #353535,
-      0 0 28px #2c2c2c;
-    color: #585858;
+      0 0 16px #696969,
+      0 0 16px #3d3d3d,
+      0 0 16px #353535,
+      0 0 16px #2c2c2c;
+    color: #858585;
   }
 }
 .contentButton{
@@ -358,20 +296,75 @@ animation: neonPulsebox 4s infinite ease-in-out;
   top:300px;
   padding: 10px;
   align-items: flex-start;
-  border: #440000 solid 1px;
+  border: #313131 solid 1px;
+  font-weight: 600;
 }
-.aboutLink:hover{
+.aboutLink:hover, .servicesLink:hover, .contactLink:hover{
   background-color: #810000;
   border-radius: 5px;             /* Optional: rounded corners */
   transition: background 0.2s, color 0.2s;
 }
-.servicesLink:hover{
-  background-color: #810000;
-  border-radius: 5px;             /* Optional: rounded corners */
-  transition: background 0.2s, color 0.2s;
+.heroIcons{
+  height: 600px;
+  display:flex;
+  position: relative;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 100px;
 }
-.contactLink:hover{
-  background-color: #810000;
-  border-radius: 5px;             /* Optional: rounded corners */
-  transition: background 0.2s, color 0.2s;
+.iconBox1, .iconBox2, .iconBox3{
+   height: 200px;
+  display: flex;
+  width: 20%;
+  border: 6px solid rgb(150, 150, 150);
+  border-radius: 8px;
+  z-index: 4;
+  animation: neonPulsebox 4s infinite ease-in-out;
+  font-size: 35px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
 }
+.iconBox1 svg, .iconBox2 svg, .iconBox3 svg{
+  width: 110px;
+  height: 110px;
+  fill:#8a8a8a ; /* Inherit text color */
+  filter: drop-shadow(0 0 14px #adadad)
+          drop-shadow(0 0 18px #5e5e5e)
+          drop-shadow(0 0 20px #252525);
+}
+.subHero{
+position: relative;
+height: 600px;
+background-color: rgb(0, 0, 0);
+display: flex;
+}
+.whySection{
+  margin-left: 5%;
+  margin-top: 1rem;
+   border-radius: 10px;
+   font-size: 4rem;
+   height: 400px;
+   width: 705px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: rgb(116, 0, 0);
+  font-weight: 100;
+  text-shadow: 1px 1px 3px black;
+  font-family: 'Montserrat', sans-serif;
+  gap: 8px;
+  color: white;
+}
+.whySection img{
+  width: 400px;
+  border-radius: 10px;
+}
+
+/* .iconBox3{ left: 20%;}
+.iconBox2{left:40%;}
+.iconBox1{ left: 60%;} */
