@@ -63,7 +63,24 @@ const navigate = useNavigate()
         <SubHero></SubHero>
         <div className='benefitsSec'>
         <div className='benefitsHeader'>The Benefits of Window Tint</div>
-        <div className='benefitsGrid'></div>
+        <div className='benefitsGrid'>
+        <div className='benefits1'>
+          <div className='benfitsPic1'></div>
+          <div className='benfitsText1'></div>
+        </div>
+        <div className='benefits2'>
+          <div className='benfitsPic2'></div>
+          <div className='benfitsText2'></div>
+        </div>
+        <div className='benefits3'>
+          <div className='benfitsPic3'></div>
+          <div className='benfitsText3'></div>
+        </div>
+        <div className='benefits4'>
+          <div className='benfitsPic4'></div>
+          <div className='benfitsText4'></div>
+        </div>
+        </div>
         
         </div>
 

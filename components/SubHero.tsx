@@ -10,7 +10,7 @@ return <div className='subHero'>
           <span className='redText'> expert with hands-on tinting experience </span>, we understand what tinters really need. We offer 
           a variety of high-quality materials, from<span className='redText'> Carbon to advanced Ceramic IR</span>, along with the essential 
           <span className='redText'> tools</span> to get the job done right. Whether you're a <span className='redText'>pro</span> or tackling a <span className='redText'>
-            DIY </span>project, we're here to make the process smoother, faster, and better—with local support you can trust.
+            DIY </span>project, we're here to make the process smoother, faster, and better—with our local support that you can trust.
           </p>
           </div>
         </div>
